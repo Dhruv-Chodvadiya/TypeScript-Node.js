@@ -12,14 +12,6 @@ import {
   getRoleByQuery,
 } from "../../modules/role";
 
-/* declare global {
-  namespace Express {
-    interface Request {
-      _id?: string; // Define your custom property here
-    }
-  }
-} */
-
 export default class Controller {
   protected verifyRoleSchema = Joi.object({
     roleName: Joi.string().pattern(new RegExp("^[a-zA-Z]")).required(),
