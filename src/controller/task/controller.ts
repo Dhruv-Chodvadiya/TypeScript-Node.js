@@ -19,7 +19,7 @@ export default class Controller {
   protected verifyTaskSchema = Joi.object({
     taskName: Joi.string().required(),
     description: Joi.string().required(),
-    assignedTo: Joi.string().required(), // Assuming assignedTo is a string (user ID)
+    assignedTo: Joi.string().required(),
   });
 
   protected getTaskAssignBy = async (req: Request, res: Response) => {
