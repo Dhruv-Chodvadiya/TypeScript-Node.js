@@ -15,14 +15,6 @@ import {
   Task,
 } from "../../modules/task";
 
-/* declare global {
-  namespace Express {
-    interface Request {
-      tokenData?: JwtPayload; // Define your custom property here
-    }
-  }
-} */
-
 export default class Controller {
   protected verifyTaskSchema = Joi.object({
     taskName: Joi.string().required(),
