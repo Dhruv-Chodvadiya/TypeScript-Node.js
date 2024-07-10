@@ -253,7 +253,7 @@ export default class Controller {
       }
 
       if (!req.body.taskDate) {
-        req.body.taskDate = existTask.taskDate; // Assuming existTask.taskDate is the default value
+        req.body.taskDate = existTask.taskDate; 
       }
 
       if (req.body.assignedTo || req.body.assignedBy) {
