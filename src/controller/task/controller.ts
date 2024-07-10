@@ -107,21 +107,19 @@ export default class Controller {
         assignedTo,
       }: { taskName: string; description: string; assignedTo: string } = value;
 
-      // Check if assignedTo is the same as the user's ID from the token
-      const tokenData = req.tokenData ; // Type assertion for req.tokenData
+
+      const tokenData = req.tokenData ;
       if (tokenData.id === assignedTo) {
         return res
           .status(400)
           .json({ message: "You cannot assign a task to yourself" });
       }
 
-      // Check if the user (assignedTo) exists
       const existUser: IUser = await getUserById(assignedTo);
       if (!existUser) {
         return res.status(404).json({ message: "User not found" });
       }
 
-      // Check if there is already a task with the same name assigned to the user
       const existingTask = (await getOneTask({
         taskName,
         assignedTo,
@@ -132,13 +130,11 @@ export default class Controller {
         });
       }
 
-      // Create a new task instance
       const newTask = new taskModel({
         ...value,
         assignedBy: tokenData.id,
       });
 
-      // Save the new task to the database
       await newTask.save();
 
       res.status(200).json({ message: "Task assigned successfully" });
