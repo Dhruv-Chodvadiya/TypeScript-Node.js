@@ -183,21 +183,18 @@ export default class Controller {
 
   protected update = async (req: Request, res: Response) => {
     try {
-      // Validate request body
       const { error, value } = this.verifyUpdateUserSchema.validate(req.body);
 
       if (error) {
         return res.status(400).json({ message: error.message });
       }
 
-      // Find user by ID
       const user: IUser = await getUserById(req.params.userId);
 
       if (!user) {
         return res.status(404).json({ message: "User ID not found" });
       }
 
-      // Check if password is provided and validate against old password
       if (value.password) {
         const match: boolean = await bcrypt.compare(
           value.password,
