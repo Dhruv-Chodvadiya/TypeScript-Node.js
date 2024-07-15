@@ -28,7 +28,7 @@ const taskSchema = new Schema<ITask>({
   },
   assignedBy: {
     type: Schema.Types.ObjectId,
-    ref: "user", // Reference to the 'User' model
+    ref: "user",
     required: true,
   },
 });
