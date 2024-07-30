@@ -156,16 +156,6 @@ export default class Controller {
         });
       }
 
-      /* const updateDetails = (await updateRole(reqID, {
-        $pull: { permissions: { $in: req.body.permissions } },
-      })) as IRole;
-
-      if (!updateDetails) {
-        return res.status(404).json({
-          message: "Role not found or update failed",
-        });
-      } */
-
       res.status(200).json({
         message: "remove Permission successfully",
       });
