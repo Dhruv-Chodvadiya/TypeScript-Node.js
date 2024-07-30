@@ -97,22 +97,6 @@ export default class Controller {
         ...new Set<string>(req.body.permissions),
       ];
 
-      /* let updateObj: {
-        roleName?: string;
-        $addToSet?: { permissions: { $each: string[] } };
-      } = {};
-
-      if (req.body.roleName) {
-        updateObj.roleName = req.body.roleName;
-      }
-
-      if (req.body.permissions && req.body.permissions.length > 0) {
-        updateObj.$addToSet = { permissions: { $each: reqPermission } };
-      }
-
-      req._id = reqID;
-
-      const updatedRole = await updateRole(req._id, updateObj); */
 
       let updateObj: {
         roleName?: string;
