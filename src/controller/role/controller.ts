@@ -55,7 +55,6 @@ export default class Controller {
       if (error) {
         return res.status(400).json({
           message: error,
-          //message: error.details.map((err) => err.message).join(", "),
         });
       }
 
