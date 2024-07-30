@@ -112,7 +112,6 @@ export default class Controller {
         const addPermissions = `$addToSet = { permissions: { $each: reqPermission } }`
         console.log(typeof addPermissions);
         updateObj.permissions = addPermissions;
-        //updateObj.$addToSet = { permissions: { $each: reqPermission } };
       }
 
       req._id = req.params.roleId;
