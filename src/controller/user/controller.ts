@@ -92,7 +92,7 @@ export default class Controller {
         getUserData = await getUserQuery({});
       } else if (role.roleName === "Admin") {
         const getAllUser: IUser[] = await getUserQuery({});
-        getUserData = getAllUser.filter(user => (user.role as IRole).roleName === 'Employee');
+        getUserData = getAllUser.filter(user => (user.role).roleName === 'Employee');
       }
 
       res.status(200).json({
